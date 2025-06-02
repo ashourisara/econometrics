@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import ExportButton from "./ExportButton";
 
 export default function FixedIncomeDisplay() {
   const [data, setData] = useState<any>(null);
@@ -51,7 +52,7 @@ export default function FixedIncomeDisplay() {
         </div>
       )}
 
-      {/* Content with fade-in animation */}
+      {/* Content*/}
       <div
         className={`transition-opacity duration-500 ${
           loading ? "opacity-0 h-0 overflow-hidden" : "opacity-100"
@@ -82,14 +83,14 @@ export default function FixedIncomeDisplay() {
       </div>
 
       <button
-        className={`hover:cursor-pointer mt-6 w-full p-4 bg-[#27ae60] rounded-lg text-white font-bold text-[16px] hover:bg-[#229955] transition-all duration-300 ${
-          loading ? "opacity-50 cursor-not-allowed" : "hover:shadow-md"
-        }`}
+        className={`hover:cursor-pointer mt-6 w-full p-4 bg-[#27ae60] rounded-lg text-white font-bold text-[16px] hover:bg-[#229955] transition-all duration-300 
+          ${loading ? "opacity-50 cursor-not-allowed" : "hover:shadow-md"}`}
         onClick={() => setRefreshCount((prev) => prev + 1)}
         disabled={loading}
       >
         {loading ? "Loading..." : "Refresh Data"}
       </button>
+      <ExportButton />
     </div>
   );
 }
