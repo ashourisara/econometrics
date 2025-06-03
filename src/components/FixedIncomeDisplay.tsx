@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import ExportButton from "@/components/ExportButton";
 
 export default function FixedIncomeDisplay() {
   const [data, setData] = useState<any>(null);
@@ -90,6 +91,7 @@ export default function FixedIncomeDisplay() {
       >
         {loading ? "Loading..." : "Refresh Data"}
       </button>
+      <ExportButton />
     </div>
   );
 }

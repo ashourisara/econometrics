@@ -1,4 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { saveScrapedData } from "@/lib/dataService";
+
 import puppeteer from "puppeteer";
 import { Data } from "@/types/Data";
 
@@ -41,6 +43,8 @@ export default async function handler(
     });
 
     await browser.close();
+
+    saveScrapedData(fixedIncomeData);
 
     if (!fixedIncomeData.title) {
       return res.status(404).json({ error: "Data not found" });
